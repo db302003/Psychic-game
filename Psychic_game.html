@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Dawn's Psychic Game</title>
+  
+</head>
+
+<body>
+<div id="game-info">
+
+    <h1 align="center"> Guess what letter I'm thinking of? </h1>
+	<center> 
+    <h3 id="wins"> Wins: </h3>
+	<h3 id="losses"> Losses: </h3>
+	<h3 id="guessesRemaining" >Guesses Left: </h3>
+    <h3 id="guessesSoFar"> Your Guesses So Far:</h3>
+    </center>
+    <img width="1323" height="1000" src="https://cdn.powerofpositivity.com/wp-content/uploads/2015/05/psychic-ability.jpg" class="attachment-1600x900 size-1600x900 wp-post-image pib-hover-img" alt="psychic abilities" data-pin-url="https://www.powerofpositivity.com/6-ways-to-access-your-natural-psychic-abilitiy/">
+</div>
+
+<script type="text/javascript">
+	var wins = document.getElementById("wins");
+	var losses = document.getElementById("losses");
+	var guessesRemaining = document.getElementById("guessesRemaining");
+	var guessesSoFar = document.getElementById("guessesSoFar");
+	var allLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+	var winsCount = 0;
+	var lossesCount = 0;
+	var defaultGuessesRemaining = 9;
+	var guessesRemainingCount = defaultGuessesRemaining;
+	var guessesArray = [];
+	var getRandomLetter = function () {
+		randomLetter = allLetters[Math.floor(Math.random()*allLetters.length)]
+		console.log(randomLetter);
+		return randomLetter
+
+	}	
+	var displayStats = function () {
+		wins.innerHTML = "Wins: " + winsCount
+		losses.innerHTML = "Losses: " + lossesCount
+		guessesRemaining.innerHTML = "Guesses Left: " + guessesRemainingCount
+		guessesSoFar.innerHTML = "Your Guesses So Far: " + guessesArray
+	}
+	var resetGame = function () {
+		guessesArray = [];
+		guessesRemainingCount = defaultGuessesRemaining;
+		currentLetter = getRandomLetter();
+	}
+	var userWon = function (userLetter) {
+		return userLetter === currentLetter 
+	}
+	var userLost = function () {
+		return guessesRemainingCount === 0;
+	}
+	var currentLetter = getRandomLetter();
+	displayStats();
+	document.onkeyup = function (event) {
+		var userLetter = event.key;
+		guessesRemainingCount--
+		guessesArray.push(userLetter)
+		if (userWon(userLetter)) {
+			winsCount++;
+			resetGame();
+		} 
+		if (userLost()) {
+			lossesCount++;
+			resetGame();
+		}
+		displayStats();
+
+		var x = 
+		document.getElementById ("http://javascriptkit.com/midi/xfile.mid");
+
+		function playAudio(){
+			x.play();
+		{
+			function pauseAudio() {
+				x.pause();
+			}
+		}
+    } 
+
+</script>
+
+
+<div id="musicControls" class="text-center">
+
+
+        <button class="http://javascriptkit.com/midi/xfile.mid">
+          <span class="http://javascriptkit.com/midi/xfile.mid"></span> Play Theme!</button>
+        <button class="http://javascriptkit.com/midi/xfile.mid">
+          <span class="http://javascriptkit.com/midi/xfile.mid"></span> Pause Song</button>        
+      </div>
+
+    <footer align="center"> Created by Dawn Benton </footer>
+</body>
+</html> 
